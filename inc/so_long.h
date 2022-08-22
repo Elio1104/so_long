@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 typedef struct s_game {
-
+    char **map;
 }   t_game;
 
 #endif 
