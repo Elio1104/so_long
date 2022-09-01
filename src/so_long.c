@@ -2,12 +2,12 @@
 
 void	ft_window(t_game *game)
 {
-	game->pxl = 50;
+	game->pxl = 64;
 	game->mlx = mlx_init();
 	game->mlx_win = mlx_new_window(game->mlx,
 			game->pxl * game->map_x,
-			game->pxl * game->map_y, "So_long : Aaron Londot");
-    
+			game->pxl * game->map_y, "So_long : Version Pokemon");
+    ft_window_file(game);
 }
 
 void checking_map(char **argv, t_game *game)
@@ -15,6 +15,7 @@ void checking_map(char **argv, t_game *game)
     char *buffer;
     char *line;
     int fd;
+    int i;
 
     i = 0;
     fd = open(argv[1], O_RDONLY);
@@ -23,7 +24,7 @@ void checking_map(char **argv, t_game *game)
 		ft_printf("Error!\nThe map could not be read.\n");
 		exit (1);
 	}
-    buffer = get_map(fd, &game);
+    buffer = get_map(fd, game);
     ft_check_pce(buffer, game);
 	game->map = ft_split(buffer, '\n');
     while (game->map[0][i] != '\0')
@@ -40,11 +41,13 @@ void	ft_init_struct(t_game *game)
     game->map_area = 0;
 	game->map_x = 0;
 	game->map_y = 0;
-	game->x = 0;
+	game->pl_x = 0;
+	game->pl_y = 0;
+    game->x = 0;
 	game->y = 0;
 	game->player = 0;
-	game->player_mov = 0;
-	game->player_dir = "!!!!!!!!!!!!";
+	game->pl_mov = 0;
+	game->pl_dir = "./img/player/Dawn_up1.xpm";
 	game->collect = 0;
 	game->exit = 0;
 }
@@ -70,5 +73,10 @@ int main(int argc, char **argv)
     checking_arg(argc, argv);
     ft_init_struct(&game);
     checking_map(argv, &game);
+    ft_printf("28");
+    ft_window(&game);
+    ft_printf("28");
+    mlx_key_hook(game.mlx_win, ft_keyboard, &game);
+    mlx_loop(game.mlx);
     return (0);
 }

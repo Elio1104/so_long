@@ -2,14 +2,15 @@
 
 void	ft_check_map(char *buffer, t_game *game)
 {
-	game->map_area = ft_strlen(buffer) - game->map_y;
+	game->map_area = ft_strlen(buffer) - game->map_y + 1;
 	if (game->map_area != game->map_x * game->map_y)
 	{
+		ft_printf("%i %i %i\n", game->map_x, game->map_y, game->map_area);
 		ft_printf("Error!\nThe map has a wrong layout.\n");
 		exit (1);
 	}
-	ft_check_x_limits(game);
-	ft_check_y_limits(game);
+	ft_check_x_border(game);
+	ft_check_y_border(game);
 }
 
 void	ft_check_pce(char *buffer, t_game *game)
@@ -25,7 +26,7 @@ void	ft_check_pce(char *buffer, t_game *game)
 			game->collect++;
 		if (buffer[i] == 'E')
 			game->exit++;
-		if (buffer[i] == '\n')
+		if (buffer[i + 1] == '\n' || buffer[i + 1] == '\0')
 			game->map_y++;
 		i++;
 	}
@@ -73,7 +74,7 @@ int	ft_check(char *line)
 	return (0);
 }
 
-void get_map(int fd, t_game *game)
+char *get_map(int fd, t_game *game)
 {
     char	buffer;
 	char	*line;
