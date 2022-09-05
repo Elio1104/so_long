@@ -72,4 +72,9 @@ void    ft_put_wall(t_game *game);
 void	ft_fill_floor(t_game *game);
 void	ft_window_file(t_game *game);
 
+int     check_ce(char **tmp, t_game *game);
+int     backtracking(char **tab, int x, int y, t_game *game);
+int     path_checking(t_game game);
+void    pl_xy(t_game *game);
+
 #endif 
