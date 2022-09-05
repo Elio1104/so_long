@@ -9,7 +9,7 @@ void	ft_close_window(t_game *game)
 void    ft_put_exit(t_game *game)
 {
     game->file = mlx_xpm_file_to_image(game->mlx,
-					"./img/player/Dawn_left2.xpm", &game->pxl, &game->pxl);
+					"./img/player/Dawn_up1.xpm", &game->pxl, &game->pxl);
 	mlx_put_image_to_window (game->mlx, game->mlx_win,
 				game->file, game->pxl * game->x,
 				game->pxl * game->y);
@@ -29,7 +29,7 @@ void    ft_put_player(t_game *game)
 void    ft_put_collect(t_game *game)
 {
     game->file = mlx_xpm_file_to_image(game->mlx,
-					"./img/player/Dawn_right2.xpm", &game->pxl, &game->pxl);
+					"./img/pokeball.xpm", &game->pxl, &game->pxl);
 	mlx_put_image_to_window (game->mlx, game->mlx_win,
 				game->file, game->pxl * game->x,
 				game->pxl * game->y);

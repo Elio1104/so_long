@@ -69,13 +69,15 @@ void checking_arg(int argc, char **argv)
 int main(int argc, char **argv)
 {
     t_game game;
+    t_game tmp;
 
     checking_arg(argc, argv);
+    ft_init_struct(&tmp);
+    checking_map(argv, &tmp);
     ft_init_struct(&game);
     checking_map(argv, &game);
-    ft_printf("28");
+    path_checking(tmp);
     ft_window(&game);
-    ft_printf("28");
     mlx_key_hook(game.mlx_win, ft_keyboard, &game);
     mlx_loop(game.mlx);
     return (0);
