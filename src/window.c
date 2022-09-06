@@ -6,10 +6,19 @@ void	ft_close_window(t_game *game)
 	exit(1);
 }
 
+void	draw_step_count(t_game *game)
+{
+	char	*str;
+
+	str = ft_itoa(game->pl_mov);
+	mlx_string_put(game->mlx, game->mlx_win, 25, 30, 0xffffff, str);
+	free(str);
+}
+
 void    ft_put_exit(t_game *game)
 {
     game->file = mlx_xpm_file_to_image(game->mlx,
-					"./img/player/Dawn_up1.xpm", &game->pxl, &game->pxl);
+					"./img/exit.xpm", &game->pxl, &game->pxl);
 	mlx_put_image_to_window (game->mlx, game->mlx_win,
 				game->file, game->pxl * game->x,
 				game->pxl * game->y);
@@ -18,7 +27,7 @@ void    ft_put_exit(t_game *game)
 void    ft_put_player(t_game *game)
 {
     game->file = mlx_xpm_file_to_image(game->mlx,
-					"./img/player/Dawn_down1.xpm", &game->pxl, &game->pxl);
+					game->pl_dir, &game->pxl, &game->pxl);
 	game->pl_x = game->x;
 	game->pl_y = game->y;
 	mlx_put_image_to_window (game->mlx, game->mlx_win,
@@ -30,6 +39,15 @@ void    ft_put_collect(t_game *game)
 {
     game->file = mlx_xpm_file_to_image(game->mlx,
 					"./img/pokeball.xpm", &game->pxl, &game->pxl);
+	mlx_put_image_to_window (game->mlx, game->mlx_win,
+				game->file, game->pxl * game->x,
+				game->pxl * game->y);
+	game->collect++;
+}
+void    ft_put_vilain(t_game *game)
+{
+    game->file = mlx_xpm_file_to_image(game->mlx,
+					"./img/vilain.xpm", &game->pxl, &game->pxl);
 	mlx_put_image_to_window (game->mlx, game->mlx_win,
 				game->file, game->pxl * game->x,
 				game->pxl * game->y);
@@ -81,6 +99,8 @@ void	ft_window_file(t_game *game)
 		{
 			if (game->map[game->y][game->x] == '1')
 				ft_put_wall(game);
+			if (game->map[game->y][game->x] == 'V')
+				ft_put_vilain(game);
 			if (game->map[game->y][game->x] == 'C')
 				ft_put_collect(game);
 			if (game->map[game->y][game->x] == 'P')
@@ -91,5 +111,6 @@ void	ft_window_file(t_game *game)
 		}
 		game->y++;
 	}
+	draw_step_count(game);
 	ft_printf("Movements: %d\n", game->pl_mov);
 }
