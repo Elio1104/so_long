@@ -37,10 +37,15 @@ typedef struct s_game {
     int     collect;    //count collect
     int     player;     //count player
     int     exit;       //count exit
+    int     dir;
+    int     deplacement;
 }   t_game;
 
-# define TRUE 1
-# define FALSE 0
+# define NO_DIR 0
+# define UP 1
+# define DOWN 2
+# define LEFT 3
+# define RIGHT 4
 
 void	ft_borders_error(void);
 void	ft_check_x_border(t_game *game);
@@ -64,8 +69,9 @@ void	ft_init_struct(t_game *game);
 void    checking_arg(int argc, char **argv);
 
 void	ft_close_window(t_game *game);
+void	draw_step_count(t_game *game);
 void    ft_put_exit(t_game *game);
-void    ft_put_player(t_game *game);
+void    ft_put_player(t_game *game, int x, int y, char *str);
 void    ft_put_collect(t_game *game);
 void    ft_put_floor(t_game *game);
 void    ft_put_wall(t_game *game);
@@ -76,5 +82,8 @@ int     check_ce(char **tmp, t_game *game);
 int     backtracking(char **tab, int x, int y, t_game *game);
 int     path_checking(t_game game);
 void    pl_xy(t_game *game);
+
+void    animation_up(t_game *game);
+int     main_loop(t_game *game);
 
 #endif 

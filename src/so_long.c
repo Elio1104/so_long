@@ -8,6 +8,9 @@ void	ft_window(t_game *game)
 			game->pxl * game->map_x,
 			game->pxl * game->map_y, "So_long : Version Pokemon");
     ft_window_file(game);
+	ft_printf("Movements: %d\n", game->pl_mov);
+    pl_xy(game);
+    ft_put_player(game, game->pxl * game->pl_x, game->pxl * game->pl_y, game->pl_dir);
 }
 
 void checking_map(char **argv, t_game *game)
@@ -50,6 +53,8 @@ void	ft_init_struct(t_game *game)
 	game->pl_dir = "./img/player/Dawn_up1.xpm";
 	game->collect = 0;
 	game->exit = 0;
+    game->dir = NO_DIR;
+    game->deplacement = 0;
 }
 
 void checking_arg(int argc, char **argv)
@@ -79,6 +84,7 @@ int main(int argc, char **argv)
     path_checking(tmp);
     ft_window(&game);
     mlx_key_hook(game.mlx_win, ft_keyboard, &game);
+    mlx_loop_hook(game.mlx, main_loop, &game);
     mlx_loop(game.mlx);
     return (0);
 }
