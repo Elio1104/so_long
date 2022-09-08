@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   window.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alondot <alondot@student.s19.be>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/08 13:02:24 by alondot           #+#    #+#             */
+/*   Updated: 2022/09/08 13:05:54 by alondot          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	ft_close_window(t_game *game)
@@ -15,57 +27,58 @@ void	draw_step_count(t_game *game)
 	free(str);
 }
 
-void    ft_put_exit(t_game *game)
+void	ft_put_exit(t_game *game)
 {
-    game->file = mlx_xpm_file_to_image(game->mlx,
-					"./img/exit.xpm", &game->pxl, &game->pxl);
+	game->file = mlx_xpm_file_to_image(game->mlx,
+			"./img/exit.xpm", &game->pxl, &game->pxl);
 	mlx_put_image_to_window (game->mlx, game->mlx_win,
-				game->file, game->pxl * game->x,
-				game->pxl * game->y);
+		game->file, game->pxl * game->x,
+		game->pxl * game->y);
 }
 
-void    ft_put_player(t_game *game, int x, int y, char *img)
+void	ft_put_player(t_game *game, int x, int y, char *img)
 {
-    game->file = mlx_xpm_file_to_image(game->mlx,
-					img, &game->pxl, &game->pxl);
+	game->file = mlx_xpm_file_to_image(game->mlx,
+			img, &game->pxl, &game->pxl);
 	mlx_put_image_to_window (game->mlx, game->mlx_win,
-				game->file, x, y);
+		game->file, x, y);
 }
 
-void    ft_put_collect(t_game *game)
+void	ft_put_collect(t_game *game)
 {
-    game->file = mlx_xpm_file_to_image(game->mlx,
-					"./img/pokeball.xpm", &game->pxl, &game->pxl);
+	game->file = mlx_xpm_file_to_image(game->mlx,
+			"./img/pokeball.xpm", &game->pxl, &game->pxl);
 	mlx_put_image_to_window (game->mlx, game->mlx_win,
-				game->file, game->pxl * game->x,
-				game->pxl * game->y);
+		game->file, game->pxl * game->x,
+		game->pxl * game->y);
 	game->collect++;
 }
-void    ft_put_vilain(t_game *game)
+
+void	ft_put_vilain(t_game *game)
 {
-    game->file = mlx_xpm_file_to_image(game->mlx,
-					"./img/vilain.xpm", &game->pxl, &game->pxl);
+	game->file = mlx_xpm_file_to_image(game->mlx,
+			"./img/vilain.xpm", &game->pxl, &game->pxl);
 	mlx_put_image_to_window (game->mlx, game->mlx_win,
-				game->file, game->pxl * game->x,
-				game->pxl * game->y);
+		game->file, game->pxl * game->x,
+		game->pxl * game->y);
 }
 
-void    ft_put_floor(t_game *game)
+void	ft_put_floor(t_game *game)
 {
-    game->file = mlx_xpm_file_to_image(game->mlx,
-					"./img/Grass.xpm", &game->pxl, &game->pxl);
+	game->file = mlx_xpm_file_to_image(game->mlx,
+			"./img/Grass.xpm", &game->pxl, &game->pxl);
 	mlx_put_image_to_window (game->mlx, game->mlx_win,
-				game->file, game->pxl * game->x,
-				game->pxl * game->y);
+		game->file, game->pxl * game->x,
+		game->pxl * game->y);
 }
 
-void    ft_put_wall(t_game *game)
+void	ft_put_wall(t_game *game)
 {
-    game->file = mlx_xpm_file_to_image(game->mlx,
-					"./img/Tree.xpm", &game->pxl, &game->pxl);
+	game->file = mlx_xpm_file_to_image(game->mlx,
+			"./img/Tree.xpm", &game->pxl, &game->pxl);
 	mlx_put_image_to_window (game->mlx, game->mlx_win,
-				game->file, game->pxl * game->x,
-				game->pxl * game->y);
+		game->file, game->pxl * game->x,
+		game->pxl * game->y);
 }
 
 void	ft_fill_floor(t_game *game)

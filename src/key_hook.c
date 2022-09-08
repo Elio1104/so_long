@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   key_hook.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alondot <alondot@student.s19.be>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/08 12:39:10 by alondot           #+#    #+#             */
+/*   Updated: 2022/09/08 12:42:29 by alondot          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	ft_move_up(t_game *game)
@@ -8,7 +20,8 @@ void	ft_move_up(t_game *game)
 	game->pl_mov++;
 	game->pl_dir = "./img/player/Dawn_up1.xpm";
 	ft_window_file(game);
-	ft_put_player(game, game->pxl * game->pl_x, game->pxl * game->pl_y, game->pl_dir);
+	ft_put_player(game, game->pxl * game->pl_x,
+		game->pxl * game->pl_y, game->pl_dir);
 }
 
 void	ft_move_down(t_game *game)
@@ -19,7 +32,8 @@ void	ft_move_down(t_game *game)
 	game->pl_mov++;
 	game->pl_dir = "./img/player/Dawn_down1.xpm";
 	ft_window_file(game);
-	ft_put_player(game, game->pxl * game->pl_x, game->pxl * game->pl_y, game->pl_dir);
+	ft_put_player(game, game->pxl * game->pl_x,
+		game->pxl * game->pl_y, game->pl_dir);
 }
 
 void	ft_move_left(t_game *game)
@@ -30,7 +44,8 @@ void	ft_move_left(t_game *game)
 	game->pl_mov++;
 	game->pl_dir = "./img/player/Dawn_left1.xpm";
 	ft_window_file(game);
-	ft_put_player(game, game->pxl * game->pl_x, game->pxl * game->pl_y, game->pl_dir);
+	ft_put_player(game, game->pxl * game->pl_x,
+		game->pxl * game->pl_y, game->pl_dir);
 }
 
 void	ft_move_right(t_game *game)
@@ -41,11 +56,13 @@ void	ft_move_right(t_game *game)
 	game->pl_mov++;
 	game->pl_dir = "./img/player/Dawn_right1.xpm";
 	ft_window_file(game);
-	ft_put_player(game, game->pxl * game->pl_x, game->pxl * game->pl_y, game->pl_dir);
+	ft_put_player(game, game->pxl * game->pl_x,
+		game->pxl * game->pl_y, game->pl_dir);
 }
-void check_vilain(int keyhook, t_game *game)
+
+void	check_vilain(int keyhook, t_game *game)
 {
-	int x;
+	int	x;
 
 	x = 0;
 	if (keyhook == 13 && game->map[game->pl_y - 1][game->pl_x] == 'V')

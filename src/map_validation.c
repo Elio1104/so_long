@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_validation.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alondot <alondot@student.s19.be>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/08 12:42:43 by alondot           #+#    #+#             */
+/*   Updated: 2022/09/08 12:43:52 by alondot          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	ft_check_map(char *buffer, t_game *game)
@@ -74,16 +86,16 @@ int	ft_check(char *line)
 	return (0);
 }
 
-char *get_map(int fd, t_game *game)
+char	*get_map(int fd, t_game *game)
 {
-    char	buffer;
+	char	buffer;
 	char	*line;
 	int		rd_bytes;
 
 	rd_bytes = 1;
 	if (fd < 0)
-        return (NULL);
-    line = malloc(1);
+		return (NULL);
+	line = malloc(1);
 	line[0] = '\0';
 	while (!ft_check(line) && rd_bytes > 0)
 	{
