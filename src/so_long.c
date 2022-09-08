@@ -14,8 +14,6 @@
 
 void	ft_window(t_game *game)
 {
-	game->pxl = 64;
-	game->mlx = mlx_init();
 	game->mlx_win = mlx_new_window(game->mlx,
 			game->pxl * game->map_x,
 			game->pxl * game->map_y, "So_long : Version Pokemon");
@@ -23,7 +21,7 @@ void	ft_window(t_game *game)
 	ft_printf("Movements: %d\n", game->pl_mov);
 	pl_xy(game);
 	ft_put_player(game, game->pxl * game->pl_x,
-		game->pxl * game->pl_y, game->pl_dir);
+		game->pxl * game->pl_y, game->file);
 }
 
 void	checking_map(char **argv, t_game *game)
@@ -50,24 +48,6 @@ void	checking_map(char **argv, t_game *game)
 	}
 	ft_check_map(buffer, game);
 	close(fd);
-}
-
-void	ft_init_struct(t_game *game)
-{
-	game->map_area = 0;
-	game->map_x = 0;
-	game->map_y = 0;
-	game->pl_x = 0;
-	game->pl_y = 0;
-	game->x = 0;
-	game->y = 0;
-	game->player = 0;
-	game->pl_mov = 0;
-	game->pl_dir = "./img/player/Dawn_up1.xpm";
-	game->collect = 0;
-	game->exit = 0;
-	game->dir = NO_DIR;
-	game->deplacement = 0;
 }
 
 void	checking_arg(int argc, char **argv)

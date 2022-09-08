@@ -1,8 +1,8 @@
 /* XPM */
 static char * exit_xpm[] = {
 "64 64 14 1",
-" 	c #E2E2E2",
-".	c #CCCCCC",
+" 	c None",
+".	c None",
 "+	c #606078",
 "@	c #F8B880",
 "#	c #C84050",

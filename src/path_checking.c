@@ -32,29 +32,30 @@ int	check_ce(char **tmp, t_game *game)
 	return (0);
 }
 
-int	backtracking(char **tab, int x, int y, t_game *game)
+int	backtracking(char **tmp, int x, int y, t_game *game)
 {
-	int		z;
-	char	**tmp;
-
-	tmp = tab;
-	if (tmp [y][x] == 'C' || tmp [y][x] == 'E')
+	if (tmp [y][x] == 'C')
 		game->map[y][x] = 1;
+	if (tmp [y][x] == 'E')
+	{
+		game->map[y][x] = 1;
+		return (1);
+	}
 	tmp[y][x] = 2;
 	if (!check_ce(game->map, game))
 		return (1);
 	if (check_ce(game->map, game) && (tmp[y][x - 1] == '0'
 		|| tmp[y][x - 1] == 'C' || tmp[y][x - 1] == 'E'))
-		z = backtracking(tmp, x - 1, y, game);
+		backtracking(tmp, x - 1, y, game);
 	if (check_ce(game->map, game) && (tmp[y - 1][x] == '0'
 		|| tmp[y - 1][x] == 'C' || tmp[y - 1][x] == 'E'))
-		z = backtracking(tmp, x, y - 1, game);
+		backtracking(tmp, x, y - 1, game);
 	if (check_ce(game->map, game) && (tmp[y + 1][x] == '0'
 		|| tmp[y + 1][x] == 'C' || tmp[y + 1][x] == 'E'))
-		z = backtracking(tmp, x, y + 1, game);
+		backtracking(tmp, x, y + 1, game);
 	if (check_ce(game->map, game) && (tmp[y][x + 1] == '0'
 		|| tmp[y][x + 1] == 'C' || tmp[y][x + 1] == 'E'))
-		z = backtracking(tmp, x + 1, y, game);
+		backtracking(tmp, x + 1, y, game);
 	if (!check_ce(game->map, game))
 		return (1);
 	return (0);

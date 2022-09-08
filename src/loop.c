@@ -14,25 +14,25 @@
 
 void	animation_up(t_game *game)
 {
-	game->deplacement += 8;
+	game->deplacement += GAME_SPEED;
 	ft_window_file(game);
 	if (game->deplacement < 32)
 		ft_put_player(game, game->pxl * game->pl_x,
 			(game->pxl * game->pl_y) - game->deplacement,
-			"./img/player/Dawn_up2.xpm");
+			game->u2);
 	if (game->deplacement == 32)
 		ft_put_player(game, game->pxl * game->pl_x,
 			(game->pxl * game->pl_y) - game->deplacement,
-			"./img/player/Dawn_up1.xpm");
+			game->u1);
 	if (game->deplacement > 32 && game->deplacement < 64)
 		ft_put_player(game, game->pxl * game->pl_x,
 			(game->pxl * game->pl_y) - game->deplacement,
-			"./img/player/Dawn_up3.xpm");
+			game->u3);
 	if (game->deplacement >= 64)
 	{
 		ft_put_player(game, game->pxl * game->pl_x,
 			(game->pxl * game->pl_y) - game->deplacement,
-			"./img/player/Dawn_up1.xpm");
+			game->u1);
 		ft_move_up(game);
 		ft_printf("Movements: %d\n", game->pl_mov);
 		game->dir = NO_DIR;
@@ -42,25 +42,25 @@ void	animation_up(t_game *game)
 
 void	animation_down(t_game *game)
 {
-	game->deplacement += 8;
+	game->deplacement += GAME_SPEED;
 	ft_window_file(game);
 	if (game->deplacement < 32)
 		ft_put_player(game, game->pxl * game->pl_x,
 			(game->pxl * game->pl_y) + game->deplacement,
-			"./img/player/Dawn_down2.xpm");
+			game->d2);
 	if (game->deplacement == 32)
 		ft_put_player(game, game->pxl * game->pl_x,
 			(game->pxl * game->pl_y) + game->deplacement,
-			"./img/player/Dawn_down1.xpm");
+			game->d1);
 	if (game->deplacement > 32 && game->deplacement < 64)
 		ft_put_player(game, game->pxl * game->pl_x,
 			(game->pxl * game->pl_y) + game->deplacement,
-			"./img/player/Dawn_down3.xpm");
+			game->d3);
 	if (game->deplacement >= 64)
 	{
 		ft_put_player(game, game->pxl * game->pl_x,
 			(game->pxl * game->pl_y) + game->deplacement,
-			"./img/player/Dawn_down1.xpm");
+			game->d1);
 		ft_move_down(game);
 		ft_printf("Movements: %d\n", game->pl_mov);
 		game->dir = NO_DIR;
@@ -70,21 +70,21 @@ void	animation_down(t_game *game)
 
 void	animation_left(t_game *game)
 {
-	game->deplacement += 8;
+	game->deplacement += GAME_SPEED;
 	ft_window_file(game);
 	if (game->deplacement < 32)
 		ft_put_player(game, game->pxl * game->pl_x - game->deplacement,
-			game->pxl * game->pl_y, "./img/player/Dawn_left2.xpm");
+			game->pxl * game->pl_y, game->l2);
 	if (game->deplacement == 32)
 		ft_put_player(game, game->pxl * game->pl_x - game->deplacement,
-			game->pxl * game->pl_y, "./img/player/Dawn_left1.xpm");
+			game->pxl * game->pl_y, game->l1);
 	if (game->deplacement > 32 && game->deplacement < 64)
 		ft_put_player(game, game->pxl * game->pl_x - game->deplacement,
-			game->pxl * game->pl_y, "./img/player/Dawn_left3.xpm");
+			game->pxl * game->pl_y, game->l3);
 	if (game->deplacement >= 64)
 	{
 		ft_put_player(game, game->pxl * game->pl_x - game->deplacement,
-			game->pxl * game->pl_y, "./img/player/Dawn_left1.xpm");
+			game->pxl * game->pl_y, game->l1);
 		ft_move_left(game);
 		ft_printf("Movements: %d\n", game->pl_mov);
 		game->dir = NO_DIR;
@@ -94,21 +94,21 @@ void	animation_left(t_game *game)
 
 void	animation_right(t_game *game)
 {
-	game->deplacement += 8;
+	game->deplacement += GAME_SPEED;
 	ft_window_file(game);
 	if (game->deplacement < 32)
 		ft_put_player(game, game->pxl * game->pl_x + game->deplacement,
-			game->pxl * game->pl_y, "./img/player/Dawn_right2.xpm");
+			game->pxl * game->pl_y, game->r2);
 	if (game->deplacement == 32)
 		ft_put_player(game, game->pxl * game->pl_x + game->deplacement,
-			game->pxl * game->pl_y, "./img/player/Dawn_right1.xpm");
+			game->pxl * game->pl_y, game->r1);
 	if (game->deplacement > 32 && game->deplacement < 64)
 		ft_put_player(game, game->pxl * game->pl_x + game->deplacement,
-			game->pxl * game->pl_y, "./img/player/Dawn_right3.xpm");
+			game->pxl * game->pl_y, game->r3);
 	if (game->deplacement >= 64)
 	{
 		ft_put_player(game, game->pxl * game->pl_x + game->deplacement,
-			game->pxl * game->pl_y, "./img/player/Dawn_right1.xpm");
+			game->pxl * game->pl_y, game->r1);
 		ft_move_right(game);
 		ft_printf("Movements: %d\n", game->pl_mov);
 		game->dir = NO_DIR;

@@ -39,7 +39,27 @@ typedef struct s_game {
     int     exit;       //count exit
     int     dir;
     int     deplacement;
+    
+    char    *u1;
+    char    *u2;
+    char    *u3;
+    char    *d1;
+    char    *d2;
+    char    *d3;
+    char    *l1;
+    char    *l2;
+    char    *l3;
+    char    *r1;
+    char    *r2;
+    char    *r3;
+    char    *v;
+    char    *e;
+    char    *c;
+    char    *g;
+    char    *t;
 }   t_game;
+
+# define GAME_SPEED 8
 
 # define NO_DIR 0
 # define UP 1
@@ -85,5 +105,7 @@ void    pl_xy(t_game *game);
 
 void    animation_up(t_game *game);
 int     main_loop(t_game *game);
+void	check_vilain(int keyhook, t_game *game);
+void    ft_put_vilain(t_game *game);
 
 #endif 
