@@ -36,7 +36,7 @@ int	backtracking(char **tmp, int x, int y, t_game *game)
 {
 	if (tmp [y][x] == 'C')
 		game->map[y][x] = 1;
-	if (tmp [y][x] == 'E')
+	if (tmp [y][x] == 'E' || tmp [y][x] == 'V')
 	{
 		game->map[y][x] = 1;
 		return (1);
