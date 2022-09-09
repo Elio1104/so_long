@@ -17,7 +17,6 @@ void	ft_check_map(char *buffer, t_game *game)
 	game->map_area = ft_strlen(buffer) - game->map_y + 1;
 	if (game->map_area != game->map_x * game->map_y)
 	{
-		ft_printf("%i %i %i\n", game->map_x, game->map_y, game->map_area);
 		ft_printf("Error!\nThe map has a wrong layout.\n");
 		exit (1);
 	}

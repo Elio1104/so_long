@@ -87,7 +87,7 @@ void	checking_map(char **argv, t_game *game);
 void	ft_init_struct(t_game *game);
 void	checking_arg(int argc, char **argv);
 
-void	ft_close_window(t_game *game);
+int     ft_close_window(t_game *game);
 void	draw_step_count(t_game *game);
 void	ft_put_exit(t_game *game);
 void	ft_put_player(t_game *game, int x, int y, char *str);

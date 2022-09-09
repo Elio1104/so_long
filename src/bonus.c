@@ -12,10 +12,11 @@
 
 #include "so_long.h"
 
-void	ft_close_window(t_game *game)
+int	ft_close_window(t_game *game)
 {
 	mlx_destroy_window(game->mlx, game->mlx_win);
 	exit(1);
+	return (0);
 }
 
 void	check_vilain(int keyhook, t_game *game)
