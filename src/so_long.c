@@ -6,7 +6,7 @@
 /*   By: alondot <alondot@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 12:55:40 by alondot           #+#    #+#             */
-/*   Updated: 2022/09/08 13:00:57 by alondot          ###   ########.fr       */
+/*   Updated: 2022/09/12 10:50:07 by alondot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	main(int argc, char **argv)
 	checking_map(argv, &game);
 	path_checking(tmp);
 	ft_window(&game);
-    mlx_hook(game.mlx_win, 2, 1L << 0, ft_keyboard, &game);
+	mlx_hook(game.mlx_win, 2, 1L << 0, ft_keyboard, &game);
 	mlx_hook(game.mlx_win, 17, 1L << 5, ft_close_window, &game);
 	mlx_loop_hook(game.mlx, main_loop, &game);
 	mlx_loop(game.mlx);

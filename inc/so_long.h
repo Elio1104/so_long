@@ -6,7 +6,7 @@
 /*   By: alondot <alondot@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:58:32 by alondot           #+#    #+#             */
-/*   Updated: 2022/09/08 17:37:17 by alondot          ###   ########.fr       */
+/*   Updated: 2022/09/12 10:51:04 by alondot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	checking_map(char **argv, t_game *game);
 void	ft_init_struct(t_game *game);
 void	checking_arg(int argc, char **argv);
 
-int     ft_close_window(t_game *game);
+int		ft_close_window(t_game *game);
 void	draw_step_count(t_game *game);
 void	ft_put_exit(t_game *game);
 void	ft_put_player(t_game *game, int x, int y, char *str);
